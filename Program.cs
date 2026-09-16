@@ -22,7 +22,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // now served from the exact same origin.
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("DefaultPolicy", policy =>
+    options.AddPolicy("OutlookPolicy", policy =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyHeader()
@@ -32,12 +32,24 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.Use(async (context, next) =>
+{
+    context.Response.OnStarting(() =>
+    {
+        context.Response.Headers.Remove("X-Frame-Options");
+        context.Response.Headers.Remove("Content-Security-Policy");
+        return Task.CompletedTask;
+    });
+
+    await next();
+});
+
 // Serves everything in wwwroot/ (manifest.xml, taskpane.html, commands.html,
 // commands.js, assets/*.png) as static files, at the site's root.
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-app.UseCors("DefaultPolicy");
+app.UseCors("OutlookPolicy");
 app.UseSession();
 
 app.UseAuthorization();
