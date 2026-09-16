@@ -1,0 +1,16 @@
+# Build output
+bin/
+obj/
+.vs/
+
+# User-specific files
+*.user
+*.suo
+
+# Archives and local packages
+*.rar
+*.zip
+
+# Local environment files
+.env
+.env.*

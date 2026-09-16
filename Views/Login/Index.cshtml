@@ -1,0 +1,47 @@
+@model OutlookAddinProject.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Sign in";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Outlook Add-in</title>
+    <style>
+        :root { font-family: "Segoe UI", sans-serif; color: #172033; background: #eef3f8; }
+        * { box-sizing: border-box; }
+        body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; background: radial-gradient(circle at top right, #dcecf8, transparent 42%), #eef3f8; }
+        main { width: min(100%, 430px); padding: 42px; background: #fff; border: 1px solid #d8e1eb; box-shadow: 0 18px 50px rgba(28, 48, 72, .12); }
+        .eyebrow { margin: 0 0 10px; color: #167c80; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+        h1 { margin: 0 0 10px; font-size: 2rem; letter-spacing: -.03em; }
+        .intro { margin: 0 0 28px; color: #5f6d7d; }
+        label { display: block; margin: 18px 0 7px; font-size: .9rem; font-weight: 600; }
+        input { width: 100%; padding: 12px 13px; border: 1px solid #bdcad8; border-radius: 4px; font: inherit; }
+        input:focus { outline: 3px solid rgba(22, 124, 128, .18); border-color: #167c80; }
+        button { width: 100%; margin-top: 26px; padding: 13px; border: 0; border-radius: 4px; background: #167c80; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+        button:hover { background: #116568; }
+        .validation-summary-errors { margin-bottom: 18px; padding: 11px 13px; border-left: 3px solid #c64646; background: #fff2f2; color: #8e2525; font-size: .9rem; }
+        .validation-summary-errors ul { margin: 0; padding-left: 18px; }
+    </style>
+</head>
+<body>
+    <main>
+        <p class="eyebrow">Outlook Add-in</p>
+        <h1>Welcome back</h1>
+        <p class="intro">Sign in to continue to your workspace.</p>
+        <form asp-controller="Login" asp-action="Index" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly"></div>
+            <label asp-for="Username"></label>
+            <input asp-for="Username" autocomplete="username" autofocus />
+            <span asp-validation-for="Username"></span>
+            <label asp-for="Password"></label>
+            <input asp-for="Password" autocomplete="current-password" />
+            <span asp-validation-for="Password"></span>
+            <button type="submit">Sign in</button>
+        </form>
+    </main>
+</body>
+</html>
