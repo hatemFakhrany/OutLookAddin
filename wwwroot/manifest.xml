@@ -8,7 +8,7 @@
 
   <Id>00a931a9-e4e6-4f2e-95c6-0804f99788b2</Id>
 
-  <Version>1.0.1.3</Version>
+  <Version>1.0.1.4</Version>
   <ProviderName>ECM+</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
 
@@ -35,7 +35,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://ileana-nonsculptural-ludie.ngrok-free.dev/taskpane.html" />
+        <SourceLocation DefaultValue="https://ileana-nonsculptural-ludie.ngrok-free.dev/" />
         <RequestedHeight>350</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -121,7 +121,7 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Commands.Url" DefaultValue="https://ileana-nonsculptural-ludie.ngrok-free.dev/commands.html" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://ileana-nonsculptural-ludie.ngrok-free.dev/taskpane.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://ileana-nonsculptural-ludie.ngrok-free.dev/" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="ECM+" />
